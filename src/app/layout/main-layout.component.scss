@@ -1,0 +1,107 @@
+$green: #233026;
+$brown: #825b41;
+$cream: #f4f1eb;
+
+// Importante ter a fonte sans-serif disponível para o menu (igual ao blog)
+$font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+$font-sans:  ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between; // Alterado de 'center' para 'space-between'
+  align-items: center;            // Alinha verticalmente logo e nav
+  padding: 1rem 2rem;             // Mais margem nas laterais
+  background-color: $cream;
+  border-bottom: 1px solid rgba($green, 0.1);
+
+  &__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    text-decoration: none;
+  }
+
+  &__logo {
+    display: block;
+    height: 5.5rem;
+    width: auto;
+    mix-blend-mode: multiply;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.75rem;
+    letter-spacing: 0.05em;
+    color: $green;
+
+    strong {
+      font-weight: 400;
+      font-style: italic;
+      color: $brown;
+    }
+  }
+
+  // --- Novos estilos para a navegação ---
+  &__nav {
+    display: flex;
+    gap: 2rem;
+    font-family: $font-sans;
+
+    a {
+      text-decoration: none;
+      color: $green;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.3s;
+      position: relative; // Necessário para o sublinhado do estado ativo
+
+      &:hover {
+        color: $brown;
+      }
+
+      // Estado ativo (quando estamos na página correspondente)
+      &.active {
+        color: $brown;
+
+        // Sublinhado elegante para o link ativo
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -6px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: $brown;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+}
+
+// --- Responsividade ---
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; // Empilha o logótipo e o menu
+    gap: 1.5rem;
+    padding: 1rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .header__logo  { height: 4rem; }
+  .header__title { font-size: 1.25rem; }
+
+  .header__nav {
+    gap: 1.25rem;
+    a {
+      font-size: 0.75rem; // Reduz ligeiramente o texto do menu em telemóveis
+    }
+  }
+}

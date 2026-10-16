@@ -1,0 +1,17 @@
+<aside class="sidebar">
+    <nav>
+        <ng-container *ngFor="let group of groups">
+            <p class="group-title">{{ group.title }}</p>
+
+            <a *ngFor="let item of group.items"
+               [routerLink]="item.link"
+               routerLinkActive="active"
+               class="item">
+                <i [attr.data-feather]="item.icon"></i>
+                <span>{{ item.label }}</span>
+            </a>
+        </ng-container>
+    </nav>
+
+    <footer>v1.0.0 · Painel de gestão</footer>
+</aside>

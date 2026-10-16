@@ -1,0 +1,332 @@
+// ===== Variáveis =====
+$green:       #233026;
+$green-dark:  #151d17;
+$brown:       #825b41;
+$brown-dark:  #6a4933;
+$cream:       #f4f1eb;
+$ink:         #1a1a1a;
+$gray:        #9ca3af;
+
+$font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+$font-sans:  ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+// ===== Mixins =====
+@mixin up($bp) {
+  @media (min-width: $bp) { @content; }
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  line-clamp: $lines;
+  overflow: hidden;
+}
+
+// ===== Base =====
+:host {
+  display: block;
+}
+
+.blog {
+  background-color: $cream;
+  min-height: 100vh;
+  padding-bottom: 6rem;
+  font-family: $font-sans;
+
+  img { display: block; max-width: 100%; }
+
+  // ----- Cabeçalho -----
+  &__header {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 1rem 1rem 2rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    color: $green;
+    margin-bottom: 1rem;
+
+    @include up($bp-md) {
+      font-size: 3rem;
+      line-height: 1;
+    }
+  }
+
+  &__title-accent {
+    color: $brown;
+    font-style: italic;
+  }
+
+  &__divider {
+    width: 3rem;
+    height: 2px;
+    margin: 0 auto 1.5rem;
+    background-color: $brown;
+    opacity: 0.6;
+  }
+
+    &__subtitle {
+        font-size: 1rem;
+           line-height: 1.5rem;
+           color: $green;
+           font-weight: 500;
+
+       @include up($bp-md) {
+         font-size: 1.125rem;
+         line-height: 1.75rem;
+       }
+    }
+
+  // ----- Container -----
+  &__container {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @include up($bp-sm) { padding: 0 1.5rem; }
+    @include up($bp-lg) { padding: 0 2rem; }
+  }
+
+  &__section-title {
+    font-family: $font-serif;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    color: $green;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba($green, 0.1);
+  }
+
+  // ----- Grelha -----
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+
+    @include up($bp-md) { grid-template-columns: repeat(2, 1fr); }
+    @include up($bp-lg) { grid-template-columns: repeat(3, 1fr); }
+  }
+}
+
+// ===== Hero =====
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 450px;
+  margin-bottom: 5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 20px 25px -5px rgba($green, 0.1), 0 8px 10px -6px rgba($green, 0.1);
+
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba($green-dark, 0.95) 0%, rgba($green-dark, 0.6) 60%, rgba($green-dark, 0.2) 100%);
+  }
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1.5rem;
+
+    @include up($bp-md) { padding: 4rem; }
+    @include up($bp-lg) { width: 66.6667%; }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $cream;
+    opacity: 0.8;
+  }
+
+  &__label-line {
+    width: 2rem;
+    height: 1px;
+    background-color: $brown;
+  }
+
+  &__title {
+    font-family: $font-serif;
+    font-size: 1.875rem;
+    line-height: 1.1;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 0;
+    transition: color 0.5s;
+
+    @include up($bp-md) { font-size: 3rem; }
+    @include up($bp-lg) { font-size: 3.75rem; }
+  }
+
+  &__excerpt {
+    @include line-clamp(2);
+    max-width: 36rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.625;
+    color: rgba($cream, 0.8);
+
+    @include up($bp-md) { font-size: 1rem; }
+  }
+
+  &__button {
+    padding: 0.75rem 2rem;
+    border: 0;
+    background-color: $brown;
+    color: $cream;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 20px;border-radius: 20px;
+    transition: all 0.3s;
+  }
+
+  &__button:hover { background-color: $brown-dark; }
+
+  // Efeitos "group-hover"
+  &:hover &__image  { transform: scale(1.05); }
+  &:hover &__title  { color: $brown; }
+  &:hover &__button { transform: translateY(-0.25rem); }
+}
+
+// ===== Card =====
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.5s;
+
+  &:hover {
+    border-color: rgba($brown, 0.2);
+    box-shadow: 0 25px 50px -12px rgba($brown, 0.1);
+  }
+
+  &__media {
+    position: relative;
+    height: 16rem;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease-out;
+  }
+
+  &__tint {
+    position: absolute;
+    inset: 0;
+    background-color: rgba($green, 0.1);
+    transition: background-color 0.5s;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 2rem;
+  }
+
+  &__date {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $gray;
+  }
+
+  &__title {
+    @include line-clamp(2);
+    margin-bottom: 1rem;
+    font-family: $font-serif;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    font-weight: 400;
+    color: $green;
+    transition: color 0.15s;
+  }
+
+  &__excerpt {
+    @include line-clamp(3);
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.625;
+    color: rgba($ink, 0.6);
+    margin-bottom: 9px;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $brown;
+  }
+
+  &__arrow {
+    transition: transform 0.3s;
+  }
+
+  // Efeitos "group-hover"
+  &:hover &__image { transform: scale(1.1); }
+  &:hover &__tint  { background-color: transparent; }
+  &:hover &__title { color: $brown; }
+  &:hover &__arrow { transform: translateX(0.5rem); }
+}

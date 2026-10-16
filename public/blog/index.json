@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "slug": "1-ambrosio",
+        "title": "Ambrósio: O Nosso Veterano e o Desafio dos Dentes (Capítulo 1)",
+        "excerpt": "Conheçam o mais velho da toca...",
+        "date": "18 Outubro, 2026",
+        "featured": true,
+        "active": true,
+        "hero": "hero.jpg",
+        "card": "card.jpg"
+    },
+    {
+        "id": 2,
+        "slug": "2-sobre-nos",
+        "title": "Sobre nós: bem-vindos à Sombra das Tocas",
+        "excerpt": "Quem somos, quem vive na toca e o que vão encontrar por aqui.",
+        "date": "18 Outubro, 2026",
+        "featured": false,
+        "active": true,
+        "hero": "hero.jpg",
+        "card": "card.jpg"
+    },
+    {
+        "id": 3,
+        "slug": "3-cuidados-senior",
+        "title": "Porquinhos séniores: o que muda com a idade e como ajudar",
+        "excerpt": "O que muda com a idade e como ajudar um porquinho mais velho a viver bem.",
+        "date": "A definir",
+        "featured": false,
+        "active": false,
+        "hero": "hero.jpg",
+        "card": "card.jpg"
+    }
+]

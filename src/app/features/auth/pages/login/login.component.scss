@@ -1,0 +1,229 @@
+:host {
+  --night: #231810;
+  --night-soft: #3a281b;
+  --burrow: #855d42;
+  --burrow-dark: #6b4a34;
+  --paper: #fffdfa;
+  --ink: #2a1f17;
+  --muted: #7a6c60;
+  --line: #e4dbd0;
+  --danger: #a3362b;
+  display: block;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(133, 93, 66, 0.28), transparent 70%),
+    linear-gradient(180deg, #efe6da, #e3d6c5);
+}
+
+.login-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 56px;
+  padding: 88px 36px 28px;
+  background: var(--paper);
+  border-radius: 20px;
+  box-shadow: 0 24px 50px -18px rgba(70, 45, 28, 0.35);
+  animation: rise 0.6s ease-out both;
+}
+
+// O elemento marcante: a entrada da toca, em arco
+.arch {
+  position: absolute;
+  top: -105px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px;
+  background: var(--burrow);
+  border-radius: 56px 56px 10px 10px;
+  box-shadow: 0 10px 22px -8px rgba(70, 45, 28, 0.45);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #fff;
+    border-radius: 50px 50px 5px 5px;
+    display: block;
+  }
+}
+
+.login-head {
+  text-align: center;
+  margin-bottom: 28px;
+
+  h1 {
+    margin: 0 0 8px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  p {
+    margin: 0 auto;
+    max-width: 30ch;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+}
+
+.field {
+  margin-bottom: 18px;
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+}
+
+.control {
+  position: relative;
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    height: 48px;
+    padding: 0 44px 0 44px;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+
+    &::placeholder { color: #b3a79b; }
+    &:hover { border-color: #cfc3b5; }
+    &:focus {
+      outline: none;
+      border-color: var(--burrow);
+      box-shadow: 0 0 0 4px rgba(133, 93, 66, 0.18);
+    }
+
+    // remove o fundo azul do autofill do Chrome
+    &:-webkit-autofill {
+      -webkit-text-fill-color: var(--ink);
+      box-shadow: 0 0 0 100px #fff inset;
+    }
+  }
+
+  .icon,
+  .toggle svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    transform: translateY(-50%);
+    color: #a3978b;
+    pointer-events: none;
+    transition: color 0.15s;
+  }
+
+  &:focus-within .icon { color: var(--burrow); }
+}
+
+.toggle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: #a3978b;
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+
+  svg { width: 18px; height: 18px; }
+  &:hover { color: var(--burrow); background: rgba(133, 93, 66, 0.08); }
+  &:focus-visible { outline: 2px solid var(--burrow); }
+}
+
+.error {
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  color: var(--danger);
+  background: #fbeceb;
+  border-left: 3px solid var(--danger);
+  border-radius: 6px;
+}
+
+.submit {
+  width: 100%;
+  height: 50px;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--burrow);
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+
+  &:hover:not(:disabled) { background: var(--burrow-dark); }
+  &:active:not(:disabled) { transform: translateY(1px); }
+  &:focus-visible { outline: 3px solid rgba(133, 93, 66, 0.4); outline-offset: 2px; }
+  &:disabled { opacity: 0.55; cursor: not-allowed; }
+}
+
+.loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.login-foot {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #a3978b;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 480px) {
+  .login-card { padding-left: 22px; padding-right: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-card, .spinner { animation: none; }
+}

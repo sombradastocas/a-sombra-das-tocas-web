@@ -1,0 +1,38 @@
+@if (article(); as post) {
+<article class="post">
+
+    <!-- Imagem Hero -->
+    <div class="post__hero">
+        <img class="post__hero-image" [src]="post.imageUrl" [alt]="post.title">
+        <div class="post__hero-overlay"></div> <!-- Sobreposição escura subtil -->
+    </div>
+
+    <!-- Conteúdo do Artigo -->
+    <div class="post__wrapper">
+        <div class="post__card">
+
+            <!-- Botão Voltar -->
+            <a class="post__back" routerLink="/loja/blog">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Voltar ao Jornal
+            </a>
+
+            <!-- Metadados -->
+            <div class="post__meta">
+                <span>{{ post.date }}</span>
+                <span class="post__meta-dot"></span>
+                <span>Por {{ post.author }}</span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="post__title">{{ post.title }}</h1>
+
+            <div class="post__divider"></div>
+
+            <!-- Corpo do Texto -->
+            <div class="post__content" [innerHTML]="post.content"></div>
+
+        </div>
+    </div>
+</article>
+}

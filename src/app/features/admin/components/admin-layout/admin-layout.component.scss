@@ -1,0 +1,30 @@
+:host {
+  --burrow: #855d42;
+  --burrow-dark: #6b4a34;
+  --ink: #2a1f17;
+  --muted: #7a6c60;
+  --line: #e8dfd3;
+  --paper: #fffdfa;
+  --page: #f6f1ea;
+
+  --lumiere-bordeaux: var(--burrow);
+  --lumiere-cream: var(--page);
+  --lumiere-gold: var(--burrow);
+
+  display: block;
+}
+
+/* Cobre o header e o footer do site público enquanto estás no admin */
+.admin-shell {
+  display: flex;
+  background: var(--page);
+  color: var(--ink);
+}
+
+.admin-sidebar { width: 256px; flex-shrink: 0; }
+.admin-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.admin-content { flex: 1; overflow-y: auto; padding: 24px; }
+
+@media (max-width: 767px) {
+  .admin-sidebar { display: none; }
+}

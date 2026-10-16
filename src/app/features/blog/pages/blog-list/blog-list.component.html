@@ -1,0 +1,71 @@
+<section class="blog">
+
+    <!-- Cabeçalho da Página -->
+    <div class="blog__header">
+        <p class="blog__subtitle">
+            Histórias da floresta, a beleza dos materiais naturais e a ligação profunda aos nossos companheiros.
+        </p>
+    </div>
+
+    <div class="blog__container">
+
+        <!-- SECÇÃO HERO: Artigo em Destaque -->
+        @if (featuredArticle(); as article) {
+            <article class="hero" [routerLink]="['/blog', article.slug]">
+
+                <!-- Imagem de Fundo com Zoom Suave -->
+                <img class="hero__image" [src]="article.heroUrl" [alt]="article.title">
+
+                <!-- Gradiente Escuro (Verde Musgo para Transparente) -->
+                <div class="hero__overlay"></div>
+
+                <!-- Conteúdo sobreposto -->
+                <div class="hero__content">
+                <span class="hero__label">
+                  <span class="hero__label-line"></span> Artigo em Destaque
+                </span>
+
+                    <h2 class="hero__title">{{ article.title }}</h2>
+
+                    <p class="hero__excerpt">{{ article.excerpt }}</p>
+
+                    <div>
+                        <span class="hero__button" type="button">Ler História Completa</span>
+                    </div>
+                </div>
+            </article>
+        }
+
+        <!-- GRELHA: Artigos Recentes -->
+        <h3 class="blog__section-title">Últimas Publicações</h3>
+
+        <div class="blog__grid">
+            @for (article of regularArticles(); track article.id) {
+                <article class="card" [routerLink]="['/blog', article.slug]">
+
+                    <!-- Imagem do Card -->
+                    <div class="card__media">
+                        <img class="card__image" [src]="article.cardUrl" [alt]="article.title">
+                        <div class="card__tint"></div>
+                    </div>
+
+                    <!-- Conteúdo do Card -->
+                    <div class="card__body">
+                        <span class="card__date">{{ article.date }}</span>
+
+                        <h3 class="card__title">{{ article.title }}</h3>
+
+                        <p class="card__excerpt">{{ article.excerpt }}</p>
+
+                        <div class="card__link">
+                            Ler Artigo
+                            <svg class="card__arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </div>
+                    </div>
+
+                </article>
+            }
+        </div>
+
+    </div>
+</section>

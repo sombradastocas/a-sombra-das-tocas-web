@@ -1,0 +1,58 @@
+<main class="login-page">
+    <section class="login-card" aria-labelledby="login-title">
+
+        <div class="arch" aria-hidden="true">
+            <img src="images/logo-emblema.jpg" alt="">
+        </div>
+
+        <header class="login-head">
+            <h1 id="login-title">A Sombra das Tocas</h1>
+            <p>Área de produção. Entra para gerir a loja, o blog e as reservas.</p>
+        </header>
+
+        <form class="login-form" (ngSubmit)="login()" #loginForm="ngForm" novalidate>
+
+            <div class="field">
+                <label for="email">Email</label>
+                <div class="control">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                        <path d="m3 7 9 6 9-6"></path>
+                    </svg>
+                    <input id="email" name="email" type="email" autocomplete="username"
+                           [(ngModel)]="credentials.email" placeholder="nome@luzdorefugio.pt" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <div class="control">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="4" y="11" width="16" height="9" rx="2"></rect>
+                        <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+                    </svg>
+                    <input id="password" name="password" [type]="showPassword ? 'text' : 'password'"
+                           autocomplete="current-password" [(ngModel)]="credentials.password"
+                           placeholder="A tua password" required>
+                    <button type="button" class="toggle" (click)="showPassword = !showPassword"
+                            [attr.aria-label]="showPassword ? 'Esconder password' : 'Mostrar password'">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path *ngIf="showPassword" d="M4 4l16 16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <p class="error" role="alert" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+            <button type="submit" class="submit" [disabled]="isLoading || !credentials.email || !credentials.password">
+                <span *ngIf="!isLoading">Entrar</span>
+                <span *ngIf="isLoading" class="loading"><i class="spinner"></i>A entrar…</span>
+            </button>
+        </form>
+
+        <footer class="login-foot">&copy; 2026 Sistema de Gestão Interno</footer>
+    </section>
+</main>

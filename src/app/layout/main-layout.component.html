@@ -1,0 +1,16 @@
+<header class="header">
+    <a class="header__brand" routerLink="/">
+        <img class="header__logo" src="images/logo-emblema.jpg" alt="A Sombra das Tocas">
+        <span class="header__title">A Sombra das <strong>Tocas</strong></span>
+    </a>
+
+    <nav class="header__nav">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Início</a>
+        <a routerLink="/blog" routerLinkActive="active">Blog</a>
+        <a routerLink="/sobre" routerLinkActive="active">Sobre</a>
+    </nav>
+</header>
+
+<main>
+    <router-outlet />
+</main>

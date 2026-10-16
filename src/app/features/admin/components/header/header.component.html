@@ -1,0 +1,29 @@
+<header class="h-16 shrink-0 bg-[var(--paper)] border-b border-[var(--line)] flex items-center justify-between px-6">
+
+    <h2 class="text-sm text-[var(--muted)]">Painel de controlo</h2>
+
+    <div class="flex items-center gap-4">
+
+        <button type="button" class="relative text-[var(--muted)] hover:text-[var(--burrow)] transition-colors" aria-label="Notificações">
+            <i data-feather="bell" class="w-5 h-5"></i>
+            <span class="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full"></span>
+        </button>
+
+        <div class="h-8 w-px bg-[var(--line)]"></div>
+
+        <div class="flex items-center gap-3">
+            <div class="text-right hidden sm:block leading-tight">
+                <p class="text-sm font-semibold text-[var(--ink)]">{{ auth.currentUser()?.name || 'Administrador' }}</p>
+                <p class="text-xs text-[var(--muted)]">Super Admin</p>
+            </div>
+
+            <div class="w-10 h-10 rounded-full bg-[var(--burrow)] text-white flex items-center justify-center font-semibold">
+                {{ (auth.currentUser()?.name?.charAt(0) || 'A').toUpperCase() }}
+            </div>
+
+            <button type="button" (click)="logout()" class="text-[var(--muted)] hover:text-red-600 transition-colors" title="Sair" aria-label="Sair">
+                <i data-feather="log-out" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </div>
+</header>
