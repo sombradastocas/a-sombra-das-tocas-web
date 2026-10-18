@@ -89,37 +89,48 @@
   &:focus-visible { outline: 3px solid rgba(133, 93, 66, 0.4); outline-offset: 3px; }
 }
 
-// Missão, com imagem em arco (a entrada da toca)
-.story {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 72px;
-  max-width: 1040px;
+// Missão: texto centrado e foto larga com topo em arco (a entrada da toca)
+.mission {
+  max-width: 880px;
   margin: 88px auto 0;
   padding: 0 24px;
+  text-align: center;
 
   .text {
+    max-width: 58ch;
+    margin: 0 auto 48px;
+
+    .rule { margin: 0 auto 18px; }
     h2 { margin: 0 0 16px; font-size: 2rem; line-height: 1.2; }
     p { margin: 0; font-size: 1.02rem; line-height: 1.85; color: var(--muted); }
     strong { color: var(--ink); }
   }
+
+  figcaption {
+    margin-top: 28px;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--muted);
+  }
 }
 
-.arch {
-  position: relative;
-  max-width: 400px;
-  width: 100%;
-  margin: 0 auto;
-  aspect-ratio: 4 / 5;
+.wide {
+  --r: clamp(48px, 18vw, 180px);   // raio do arco, proporcional ao ecrã
+  margin: 0;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 2px solid var(--tan);
-    border-radius: 200px 200px 16px 16px;
-    transform: translate(14px, 14px);
+  .frame {
+    position: relative;
+    aspect-ratio: 14 / 9;          // próximo da proporção da foto, para quase não cortar
+
+    // contorno desfasado atrás da imagem
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 2px solid var(--tan);
+      border-radius: var(--r) var(--r) 20px 20px;
+      transform: translate(14px, 14px);
+    }
   }
 
   img {
@@ -128,8 +139,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
     background: var(--frame);
-    border-radius: 200px 200px 16px 16px;
+    border-radius: var(--r) var(--r) 20px 20px;
     box-shadow: 0 24px 50px -22px rgba(70, 45, 28, 0.5);
   }
 }
@@ -150,7 +162,6 @@
     gap: 40px;
     margin: 0;
     padding: 0;
-    list-style: none;
   }
 
   .pig-photo {
@@ -159,11 +170,11 @@
     aspect-ratio: 4 / 5;
     margin: 0 auto 20px;
     background: var(--frame);
-    border-radius: 120px 120px 14px 14px;
+    border-radius: 50px 50px 14px 14px;
     overflow: hidden;
     box-shadow: 0 18px 36px -20px rgba(70, 45, 28, 0.5);
 
-    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    img { display: block; width: 100%; height: 100%; object-fit: inherit; }
   }
 
   h3 { margin: 0 0 4px; font-size: 1.4rem; }
@@ -227,7 +238,6 @@
     gap: 24px;
     margin: 0;
     padding: 0;
-    list-style: none;
   }
 
   li {
@@ -264,11 +274,9 @@
 @media (max-width: 800px) {
   .hero { padding: 56px 20px 48px; }
 
-  .story {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .mission {
     margin-top: 64px;
-    .arch { max-width: 320px; }
+    .text { margin-bottom: 36px; }
   }
 
   .pigs, .values { margin-top: 72px; }
@@ -278,8 +286,8 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero, .story, .pigs { animation: rise 0.7s ease-out both; }
-  .story { animation-delay: 0.1s; }
+  .hero, .mission, .pigs { animation: rise 0.7s ease-out both; }
+  .mission { animation-delay: 0.1s; }
 }
 
 @keyframes rise {

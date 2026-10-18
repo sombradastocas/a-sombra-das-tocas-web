@@ -132,8 +132,6 @@ $bp-lg: 1024px;
   }
 
   // ----- Corpo do texto (HTML injetado via [innerHTML]) -----
-  // ::ng-deep é necessário porque o Angular não aplica os estilos do
-  // componente a elementos criados através de innerHTML.
   &__content {
     max-width: none;
     font-family: $font-sans;
@@ -144,7 +142,6 @@ $bp-lg: 1024px;
     ::ng-deep {
       p {
         margin: 0 0 1.5rem;
-
         &:last-child { margin-bottom: 0; }
       }
 
@@ -163,7 +160,6 @@ $bp-lg: 1024px;
       a {
         color: $brown;
         text-decoration: underline;
-
         &:hover { color: $green; }
       }
 
@@ -172,7 +168,11 @@ $bp-lg: 1024px;
         padding-left: 1.5rem;
       }
 
-      li { margin-bottom: 0.5rem; }
+      li
+      {
+            margin-bottom: 0.5rem;
+            list-style: disc;
+        }
 
       blockquote {
         margin: 2rem 0;
@@ -182,29 +182,66 @@ $bp-lg: 1024px;
         color: $green;
       }
 
-      // Estilo de fallback para imagens sem a tag <figure>
-      img {
-        margin: 2rem 0;
-        border-radius: 0.5rem;
-      }
-
       // Estilos específicos para imagens com legendas
       .post__figure {
-        margin: 2rem 0;
+        margin: 2.5rem 0;
 
         .post__image {
-          margin: 0; // A margem já é controlada pela figure
+          margin: 0;
           border-radius: 0.5rem;
           width: 100%;
           height: auto;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         figcaption {
           font-size: 0.875rem;
           color: $gray;
-          text-align: right;
-          margin-top: 0.5rem;
+          text-align: center;
+          margin-top: 0.75rem;
           font-style: italic;
+          font-family: $font-serif;
+        }
+
+        // --- Categorias Visuais ---
+
+        // Destaque (Foto Laura & João)
+        &.post-figure--featured {
+          .post__image {
+            border: 4px solid $cream;
+            border-radius: 0.75rem;
+          }
+        }
+
+        // Grelha / Trio (Foto dos Porquinhos)
+        &.post-figure--grid {
+          .post__image {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        // Memória (Oreo, Potter, Floco)
+        &.post-figure--memory {
+          padding: 1rem;
+          background-color: rgba($cream, 0.5);
+          border-radius: 1rem;
+          border: 1px dashed $border;
+
+          .post__image {
+            box-shadow: none;
+            opacity: 0.9;
+          }
+
+          figcaption {
+            color: rgba($brown, 0.8);
+          }
+        }
+
+        // Padrão / Cuidados
+        &.post-figure--default {
+          .post__image {
+            border-radius: 0.25rem;
+          }
         }
       }
     }

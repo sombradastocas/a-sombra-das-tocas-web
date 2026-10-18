@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, of, shareReplay } from 'rxjs';
 import { BlogPost, BlogSummary } from '../../models/blog/blog.model';
 
-const BASE = 'blog';
+const BASE = 'data/blog';
 
 @Injectable({ providedIn: 'root' })
 export class BlogService {

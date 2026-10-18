@@ -8,7 +8,7 @@ export interface BlogSummary {
     featured: boolean;
     hero: string;
     card: string;
-    // preenchidos pelo serviço:
+    active: boolean;
     heroUrl?: string;
     cardUrl?: string;
 }

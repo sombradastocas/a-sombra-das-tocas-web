@@ -14,19 +14,19 @@ export class AboutComponent {
             name: 'Ambrósio',
             epithet: 'O primeiro a contar a sua história',
             text: 'É com ele que o blog começa.',
-            photo: 'images/ambrosio.jpg'
+            photo: 'images/ambrosio-apresentacao.gif'
         },
         {
             name: 'Houdini',
             epithet: 'O mágico peludo',
             text: 'Vive separado dos outros, e vamos contar como estamos a lidar com isso.',
-            photo: 'images/houdini.jpg'
+            photo: 'images/houdini-apresentacao.gif'
         },
         {
             name: 'Viriato',
             epithet: 'O forte português, rei da toca',
             text: 'Forte, português e, como o título diz, o rei da toca.',
-            photo: 'images/viriato.jpg'
+            photo: 'images/viriato-apresentacao.gif'
         }
     ];
 

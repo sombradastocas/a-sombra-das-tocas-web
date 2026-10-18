@@ -1,14 +1,13 @@
 import { Component, inject, signal, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CartService } from '../../../../core/services/cart.service';
 import { AuthService } from '../../../../core/services/auth.service';
-import { CartDrawerComponent } from '../../components/cart-drawer/cart-drawer.component';
 
 @Component({
   selector: 'app-shop-layout',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, CartDrawerComponent],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './shop-layout.component.html'
 })
 export class ShopLayoutComponent {

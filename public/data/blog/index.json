@@ -31,5 +31,16 @@
         "active": false,
         "hero": "hero.jpg",
         "card": "card.jpg"
+    },
+    {
+        "id": 4,
+        "slug": "4-higiene",
+        "title": "Higiene dos porquinhos-da-índia: limpeza, unhas e cuidados íntimos",
+        "excerpt": "Descobre os cuidados essenciais para manter o teu porquinho limpo e confortável, desde a escovagem ao corte das unhas.",
+        "date": "18 Outubro, 2026",
+        "featured": false,
+        "active": false,
+        "hero": "hero.jpg",
+        "card": "card.jpg"
     }
 ]

@@ -2,106 +2,209 @@ $green: #233026;
 $brown: #825b41;
 $cream: #f4f1eb;
 
-// Importante ter a fonte sans-serif disponível para o menu (igual ao blog)
+// Importante ter a fonte sans-serif disponível para o menu e rodapé
 $font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
 $font-sans:  ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
+// --- Layout Principal ---
+.layout-wrapper {
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+.main-content {
+flex-grow: 1;
+}
+
+// --- Cabeçalho ---
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  justify-content: space-between; // Alterado de 'center' para 'space-between'
-  align-items: center;            // Alinha verticalmente logo e nav
-  padding: 1rem 2rem;             // Mais margem nas laterais
-  background-color: $cream;
-  border-bottom: 1px solid rgba($green, 0.1);
+position: sticky;
+top: 0;
+z-index: 50;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 2rem;
+background-color: $cream;
+border-bottom: 1px solid rgba($green, 0.1);
 
-  &__brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 1.25rem;
-    text-decoration: none;
+&__brand {
+display: inline-flex;
+align-items: center;
+gap: 1.25rem;
+text-decoration: none;
+}
+
+&__logo {
+display: block;
+height: 5.5rem;
+width: auto;
+mix-blend-mode: multiply;
+}
+
+&__title {
+font-family: $font-serif;
+font-size: 1.75rem;
+letter-spacing: 0.05em;
+color: $green;
+
+strong {
+  font-weight: 400;
+  font-style: italic;
+  color: $brown;
+}
+
+
+}
+
+&__nav {
+display: flex;
+gap: 2rem;
+font-family: $font-sans;
+
+a {
+  text-decoration: none;
+  color: $green;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color 0.3s;
+  position: relative;
+
+  &:hover {
+    color: $brown;
   }
 
-  &__logo {
-    display: block;
-    height: 5.5rem;
-    width: auto;
-    mix-blend-mode: multiply;
-  }
+  &.active {
+    color: $brown;
 
-  &__title {
-    font-family: $font-serif;
-    font-size: 1.75rem;
-    letter-spacing: 0.05em;
-    color: $green;
-
-    strong {
-      font-weight: 400;
-      font-style: italic;
-      color: $brown;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: $brown;
+      border-radius: 2px;
     }
   }
+}
 
-  // --- Novos estilos para a navegação ---
-  &__nav {
-    display: flex;
-    gap: 2rem;
-    font-family: $font-sans;
 
-    a {
-      text-decoration: none;
-      color: $green;
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      transition: color 0.3s;
-      position: relative; // Necessário para o sublinhado do estado ativo
+}
+}
 
-      &:hover {
-        color: $brown;
-      }
+// --- Rodapé ---
+.footer {
+background-color: $green;
+color: rgba($cream, 0.8);
+font-family: $font-sans;
+padding-top: 4rem;
 
-      // Estado ativo (quando estamos na página correspondente)
-      &.active {
-        color: $brown;
+&__container {
+max-width: 80rem;
+margin: 0 auto;
+padding: 0 2rem 3rem;
+display: grid;
+grid-template-columns: 1fr;
+gap: 3rem;
 
-        // Sublinhado elegante para o link ativo
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: -6px;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background-color: $brown;
-          border-radius: 2px;
-        }
-      }
-    }
+@media (min-width: 768px) {
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+}
+
+
+}
+
+&__title {
+font-family: $font-serif;
+font-size: 1.5rem;
+letter-spacing: 0.05em;
+color: $cream;
+display: block;
+margin-bottom: 1rem;
+
+strong {
+  font-weight: 400;
+  font-style: italic;
+  color: $brown;
+}
+
+
+}
+
+&__desc {
+font-size: 0.875rem;
+line-height: 1.6;
+max-width: 20rem;
+color: rgba($cream, 0.6);
+}
+
+&__heading {
+font-family: $font-serif;
+color: $brown;
+font-size: 1.125rem;
+font-weight: 400;
+margin-bottom: 1.25rem;
+}
+
+&__links {
+display: flex;
+flex-direction: column;
+gap: 0.75rem;
+
+a {
+  color: rgba($cream, 0.8);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $brown;
   }
+}
+
+
+}
+
+&__bottom {
+border-top: 1px solid rgba($cream, 0.1);
+padding: 1.5rem 2rem;
+text-align: center;
+
+p {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: rgba($cream, 0.5);
+}
+
+
+}
 }
 
 // --- Responsividade ---
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column; // Empilha o logótipo e o menu
-    gap: 1.5rem;
-    padding: 1rem;
-    justify-content: center;
-  }
+.header {
+flex-direction: column;
+gap: 1.5rem;
+padding: 1rem;
+justify-content: center;
+}
 }
 
 @media (max-width: 640px) {
-  .header__logo  { height: 4rem; }
-  .header__title { font-size: 1.25rem; }
+.header__logo  { height: 4rem; }
+.header__title { font-size: 1.25rem; }
 
-  .header__nav {
-    gap: 1.25rem;
-    a {
-      font-size: 0.75rem; // Reduz ligeiramente o texto do menu em telemóveis
-    }
-  }
+.header__nav {
+gap: 1.25rem;
+a {
+font-size: 0.75rem;
+}
+}
 }

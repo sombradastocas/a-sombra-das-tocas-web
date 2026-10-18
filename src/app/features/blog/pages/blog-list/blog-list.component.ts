@@ -13,6 +13,7 @@ import { BlogService } from '../../../../core/services/blog/blog.service';
 })
 export class BlogListComponent {
     articles = toSignal(inject(BlogService).getAll(), { initialValue: [] });
-    featuredArticle = computed(() => this.articles().find(a => a.featured));
-    regularArticles = computed(() => this.articles().filter(a => !a.featured));
+    activeArticles = computed(() => this.articles().filter(a => a.active));
+    featuredArticle = computed(() => this.activeArticles().find(a => a.featured));
+    regularArticles = computed(() => this.activeArticles().filter(a => !a.featured));
 }

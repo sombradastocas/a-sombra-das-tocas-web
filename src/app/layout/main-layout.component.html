@@ -1,16 +1,50 @@
-<header class="header">
-    <a class="header__brand" routerLink="/">
-        <img class="header__logo" src="images/logo-emblema.jpg" alt="A Sombra das Tocas">
-        <span class="header__title">A Sombra das <strong>Tocas</strong></span>
-    </a>
+<div class="layout-wrapper">
+    <header class="header">
+        <a class="header__brand" routerLink="/">
+            <img class="header__logo" src="images/logo-emblema.jpg" alt="A Sombra das Tocas">
+            <span class="header__title">A Sombra das <strong>Tocas</strong></span>
+        </a>
 
-    <nav class="header__nav">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Início</a>
-        <a routerLink="/blog" routerLinkActive="active">Blog</a>
-        <a routerLink="/sobre" routerLinkActive="active">Sobre</a>
-    </nav>
-</header>
+        <nav class="header__nav">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Início</a>
+            <a routerLink="/blog" routerLinkActive="active">Blog</a>
+            <a routerLink="/sobre" routerLinkActive="active">Sobre</a>
+        </nav>
+    </header>
 
-<main>
-    <router-outlet />
-</main>
+    <main class="main-content">
+        <router-outlet />
+    </main>
+
+    <!-- Novo Rodapé -->
+    <footer class="footer">
+        <div class="footer__container">
+            <!-- Coluna 1: Marca -->
+            <div class="footer__brand">
+                <span class="footer__title">A Sombra das <strong>Tocas</strong></span>
+                <p class="footer__desc">Histórias da floresta, a beleza dos materiais naturais e a ligação profunda aos nossos companheiros.</p>
+            </div>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="footer__links">
+                <h4 class="footer__heading">Explorar</h4>
+                <a routerLink="/">Início</a>
+                <a routerLink="/blog">Jornal da Toca</a>
+                <a routerLink="/sobre">Sobre Nós</a>
+            </div>
+
+            <!-- Coluna 3: Contactos / Redes -->
+            <div class="footer__links">
+                <h4 class="footer__heading">Ligar</h4>
+                <!-- Podes colocar aqui o teu Linktree ou link real do Instagram -->
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="mailto:ola@sombradastocas.pt">ola&#64;sombradastocas.pt</a>
+            </div>
+        </div>
+
+        <!-- Base do rodapé com direitos de autor -->
+        <div class="footer__bottom">
+            <p>&copy; 2026 A Sombra das Tocas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</div>
