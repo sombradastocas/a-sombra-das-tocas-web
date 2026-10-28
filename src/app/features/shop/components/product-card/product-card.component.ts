@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CartService } from '../../../../core/services/cart.service';
@@ -9,6 +9,7 @@ import { ShopProduct } from '../../../../core/models/shop-product.model';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './product-card.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent {

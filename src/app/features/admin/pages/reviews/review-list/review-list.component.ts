@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReviewService } from '../../../../../core/services/review.service';
 import { Review } from '../../../../../core/models/review.model'; // Garante que tens este model/DTO
@@ -8,6 +8,7 @@ import { ReviewFormComponent } from '../review-form/review-form.component';
   selector: 'app-review-list',
   standalone: true,
   imports: [CommonModule ,ReviewFormComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './review-list.component.html'
 })
 export class ReviewListComponent implements OnInit {

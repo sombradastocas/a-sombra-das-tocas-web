@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
+import { Component, OnInit, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OrderStatusPipe } from '../../../../../shared/pipes/order-status.pipe';
 import { OrderService } from '../../../../../core/services/order.service';
@@ -9,6 +9,7 @@ import { OrderFormComponent } from '../order-form/order-form.component';
   selector: 'app-order-list',
   standalone: true,
   imports: [CommonModule, OrderFormComponent, OrderStatusPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './order-list.component.html'
 })
 export class OrderListComponent implements OnInit {

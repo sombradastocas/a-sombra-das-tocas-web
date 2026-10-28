@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
+import { Component, OnInit, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StockMovementService } from '../../../../../core/services/stock-movement.service';
 import { StockMovement } from '../../../../../core/models/stock-movement.model';
@@ -8,6 +8,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   selector: 'app-stock-movement-list',
   standalone: true,
   imports: [CommonModule], // Importa o FeatherModule se usares ícones
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './stock-movement-list.component.html'
 })
 export class StockMovementListComponent implements OnInit {

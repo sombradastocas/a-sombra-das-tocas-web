@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShippingService } from '../../../../../core/services/shipping.service';
 import { ShippingMethod } from '../../../../../core/models/shipping.model';
@@ -9,6 +9,7 @@ import { ShippingFormComponent } from '../shipping-form/shipping-form.component'
   selector: 'app-shipping-list',
   standalone: true,
   imports: [CommonModule, ShippingFormComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './shipping-list.component.html'
 })
 export class ShippingListComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, ChangeDetectorRef, Output, computed, inject, signal } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, ChangeDetectorRef, Output, computed, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Order } from '../../../../../core/models/order.model';
@@ -12,6 +12,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   selector: 'app-order-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './order-form.component.html'
 })
 export class OrderFormComponent implements OnInit {

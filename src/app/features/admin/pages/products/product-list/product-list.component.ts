@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, OnInit } from '@angular/core'; // <--- Adicionado 'computed'
+import { Component, inject, signal, computed, OnInit, ChangeDetectionStrategy } from '@angular/core'; // <--- Adicionado 'computed'
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../../../../core/services/product.service';
@@ -10,6 +10,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   selector: 'app-product-list',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, ProductFormComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './product-list.component.html'
 })
 export class ProductListComponent implements OnInit {

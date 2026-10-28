@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, inject, OnInit, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Material } from '../../../../../core/models/material.model';
@@ -10,6 +10,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   selector: 'app-material-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './material-form.component.html'
 })
 export class MaterialFormComponent implements OnInit {

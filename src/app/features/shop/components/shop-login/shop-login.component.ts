@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { NotificationService } from '../../../../core/services/notification.serv
     selector: 'app-shop-login',
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule],
+    changeDetection: ChangeDetectionStrategy.Eager,
     templateUrl: './shop-login.component.html'
 })
 export class ShopLoginComponent {

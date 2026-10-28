@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PromotionService } from '../../../../../core/services/promotion.service';
@@ -9,6 +9,7 @@ import { Promotion } from '../../../../../core/models/promotion.model';
   selector: 'app-promotion-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './promotion-form.component.html'
 })
 export class PromotionFormComponent implements OnInit {

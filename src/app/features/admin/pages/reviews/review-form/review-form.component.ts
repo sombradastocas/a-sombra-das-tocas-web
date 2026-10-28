@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, inject, signal, OnInit, input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, inject, signal, OnInit, input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ReviewService } from '../../../../../core/services/review.service';
@@ -8,6 +8,7 @@ import { Review } from '../../../../../core/models/review.model';
   selector: 'app-review-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './review-form.component.html'
 })
 export class ReviewFormComponent implements OnInit {

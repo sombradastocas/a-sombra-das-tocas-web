@@ -1,4 +1,4 @@
-import { Component, inject, signal, AfterViewInit } from '@angular/core';
+import { Component, inject, signal, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CartService } from '../../../../core/services/cart.service';
@@ -8,6 +8,7 @@ import { AuthService } from '../../../../core/services/auth.service';
   selector: 'app-shop-layout',
   standalone: true,
   imports: [CommonModule, RouterLink, RouterLinkActive],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './shop-layout.component.html'
 })
 export class ShopLayoutComponent {

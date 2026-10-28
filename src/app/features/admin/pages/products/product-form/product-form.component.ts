@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, inject, OnInit, signal, computed } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject, OnInit, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Product, ProductRecipe } from '../../../../../core/models/product.model';
@@ -11,6 +11,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   selector: 'app-product-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './product-form.component.html'
 })
 export class ProductFormComponent implements OnInit {

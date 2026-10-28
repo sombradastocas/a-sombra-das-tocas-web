@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -13,6 +13,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   standalone: true,
   // Adiciona ReactiveFormsModule aqui para o formulário de compra funcionar
   imports: [CommonModule, MaterialFormComponent, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './material-list.component.html'
 })
 export class MaterialListComponent implements OnInit {

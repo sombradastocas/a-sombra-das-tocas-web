@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ShippingService } from '../../../../../core/services/shipping.service';
@@ -9,6 +9,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   selector: 'app-shipping-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './shipping-form.component.html'
 })
 export class ShippingFormComponent implements OnInit {

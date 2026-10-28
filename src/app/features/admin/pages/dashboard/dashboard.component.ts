@@ -1,4 +1,4 @@
-import { Component, inject, signal, computed, OnInit, AfterViewInit } from '@angular/core';
+import { Component, inject, signal, computed, OnInit, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Order } from '../../../../core/models/order.model';
@@ -17,6 +17,7 @@ declare var feather: any;
   standalone: true,
   imports: [CommonModule, RouterModule, BaseChartDirective],
   templateUrl: './dashboard.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: []
 })
 export class DashboardComponent implements OnInit, AfterViewInit {

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { map, switchMap } from 'rxjs';
@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
     standalone: true,
     imports: [CommonModule, RouterLink],
     templateUrl: './blog-detail.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './blog-detail.component.scss'
 })
 export class BlogDetailComponent {

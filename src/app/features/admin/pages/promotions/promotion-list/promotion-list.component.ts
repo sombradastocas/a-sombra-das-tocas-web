@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PromotionService } from '../../../../../core/services/promotion.service';
 import { Promotion } from '../../../../../core/models/promotion.model';
@@ -9,6 +9,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   selector: 'app-promotion-list',
   standalone: true,
   imports: [CommonModule, PromotionFormComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './promotion-list.component.html'
 })
 export class PromotionsListComponent implements OnInit {

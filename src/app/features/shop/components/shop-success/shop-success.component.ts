@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { OrderService } from '../../../../core/services/order.service';
@@ -8,6 +8,7 @@ import { Order } from '../../../../core/models/order.model';
     selector: 'app-shop-success',
     standalone: true,
     imports: [CommonModule, RouterLink],
+    changeDetection: ChangeDetectionStrategy.Eager,
     templateUrl: './shop-success.component.html'
 })
 export class ShopSuccessComponent implements OnInit {

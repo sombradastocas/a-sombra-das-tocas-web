@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
+import { Component, OnInit, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Necessário se for Standalone
 import { Financial } from '../../../../../core/models/financial.model';
 import { FinancialService } from '../../../../../core/services/financial.service';
@@ -9,6 +9,7 @@ import { NotificationService } from '../../../../../core/services/notification.s
   standalone: true,
   imports: [CommonModule],
   templateUrl: './financial-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./financial-list.component.scss']
 })
 export class FinancialListComponent implements OnInit {

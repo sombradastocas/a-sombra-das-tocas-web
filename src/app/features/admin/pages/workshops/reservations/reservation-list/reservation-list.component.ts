@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, inject } from '@angular/core';
+import { Component, OnInit, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReservationService } from '../../../../../../core/services/admin/reservation.service';
 import { Reservation } from '../../../../../../core/models/admin/reservation.model';
@@ -8,6 +8,7 @@ import { NotificationService } from '../../../../../../core/services/notificatio
     selector: 'app-reservation-list',
     standalone: true,
     imports: [CommonModule], // Importa o FeatherModule se usares ícones
+    changeDetection: ChangeDetectionStrategy.Eager,
     templateUrl: './reservation-list.component.html'
 })
 export class ReservationListComponent implements OnInit {

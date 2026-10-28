@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal, computed } from '@angular/core';
+import { Component, OnInit, inject, signal, computed, ChangeDetectionStrategy } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
@@ -15,6 +15,7 @@ import { ReviewService } from '../../../../core/services/review.service'; // Add
   selector: 'app-product-detail',
   standalone: true,
   imports: [CommonModule, RouterModule, ReactiveFormsModule], // Added ReactiveFormsModule
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './product-detail.component.html',
 })
 export class ProductDetailComponent implements OnInit {

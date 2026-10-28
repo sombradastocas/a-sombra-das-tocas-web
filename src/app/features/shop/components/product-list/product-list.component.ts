@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, inject, signal } from '@angular/core';
+import { Component, OnInit, AfterViewInit, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ProductCardComponent } from '../product-card/product-card.component';
@@ -21,6 +21,7 @@ interface Review {
     standalone: true,
     imports: [CommonModule, ProductCardComponent, RouterLink],
     templateUrl: './product-list.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit, AfterViewInit {
