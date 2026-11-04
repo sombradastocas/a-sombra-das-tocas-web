@@ -250,4 +250,20 @@ $bp-lg: 1024px;
       }
     }
   }
+
 }
+ .ai-badge {
+      position: absolute;
+      top: 12px; /* Muda para 'bottom: 12px;' se preferires no canto inferior */
+      right: 12px; /* Muda para 'left: 12px;' se preferires no lado esquerdo */
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      padding: 4px 8px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      border-radius: 4px;
+      z-index: 10; /* Garante que fica por cima da imagem e dos overlays */
+      pointer-events: none; /* Impede que bloqueie os cliques no link do artigo */
+      backdrop-filter: blur(2px); /* Efeito opcional de desfoque no fundo */
+      letter-spacing: 0.5px;
+  }

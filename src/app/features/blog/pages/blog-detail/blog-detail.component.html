@@ -4,6 +4,9 @@
     <!-- Imagem Hero -->
     <div class="post__hero">
         <img class="post__hero-image" [src]="post.imageUrl" [alt]="post.title">
+        @if (post.imgIa) {
+            <span class="ai-badge">✨ Gerado por IA</span>
+        }
         <div class="post__hero-overlay"></div> <!-- Sobreposição escura subtil -->
     </div>
 

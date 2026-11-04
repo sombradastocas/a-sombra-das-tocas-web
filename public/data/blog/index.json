@@ -8,7 +8,8 @@
         "featured": false,
         "active": true,
         "hero": "hero.jpg",
-        "card": "card.jpg"
+        "card": "card.jpg",
+        "imgIa": false
     },
     {
         "id": 2,
@@ -19,7 +20,8 @@
         "featured": false,
         "active": true,
         "hero": "hero.jpg",
-        "card": "card.jpg"
+        "card": "card.jpg",
+        "imgIa": false
     },
     {
         "id": 3,
@@ -30,7 +32,8 @@
         "featured": false,
         "active": true,
         "hero": "hero.jpg",
-        "card": "card.jpg"
+        "card": "card.jpg",
+        "imgIa": false
     },
     {
         "id": 4,
@@ -41,7 +44,8 @@
         "featured": false,
         "active": true,
         "hero": "hero.jpg",
-        "card": "card.jpg"
+        "card": "card.jpg",
+        "imgIa": false
     },
     {
         "id": 5,
@@ -49,20 +53,22 @@
         "title": "Viriato: O nosso Teddy, a viagem a Viseu e o desastre da quarentena",
         "excerpt": "A história da chegada do nosso pequeno urso de peluche e a lição que aprendemos da pior maneira sobre a importância da quarentena.",
         "date": "1 Novembro, 2026",
-        "featured": true,
+        "featured": false,
         "active": true,
         "hero": "hero.jpg",
-        "card": "card.jpg"
+        "card": "card.jpg",
+        "imgIa": false
     },
     {
         "id": 6,
         "slug": "6-higiene-intima",
         "title": "Higiene avançada: cuidados íntimos e glândula caudal",
         "excerpt": "Tudo o que precisas de saber sobre a higiene específica dos machos e check-ups caseiros de saúde.",
-        "date": "1 Novembro, 2026",
-        "featured": false,
-        "active": false,
+        "date": "4 Novembro, 2026",
+        "featured": true,
+        "active": true,
         "hero": "hero.jpg",
-        "card": "card.jpg"
+        "card": "card.jpg",
+        "imgIa": true
     }
 ]

@@ -11,6 +11,7 @@ export interface BlogSummary {
     active: boolean;
     heroUrl?: string;
     cardUrl?: string;
+    imgIa?: boolean;
 }
 
 export interface BlogPost {
@@ -21,4 +22,5 @@ export interface BlogPost {
     hero: string;
     content: string;
     imageUrl?: string;   // preenchido pelo serviço
+    imgIa: boolean;
 }

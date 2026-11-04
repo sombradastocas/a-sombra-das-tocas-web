@@ -15,7 +15,9 @@
 
                 <!-- Imagem de Fundo com Zoom Suave -->
                 <img class="hero__image" [src]="article.heroUrl" [alt]="article.title">
-
+                @if (article.imgIa) {
+                    <span class="ai-badge">✨ Gerado por IA</span>
+                }
                 <!-- Gradiente Escuro (Verde Musgo para Transparente) -->
                 <div class="hero__overlay"></div>
 
@@ -46,6 +48,9 @@
                     <!-- Imagem do Card -->
                     <div class="card__media">
                         <img class="card__image" [src]="article.cardUrl" [alt]="article.title">
+                        @if (article.imgIa) {
+                            <span class="ai-badge">✨ Gerado por IA</span>
+                        }
                         <div class="card__tint"></div>
                     </div>
 
