@@ -12,12 +12,6 @@ export class AboutComponent {
 
     pigs = [
         {
-            name: 'Ambrósio',
-            epithet: 'O primeiro a contar a sua história',
-            text: 'É com ele que o blog começa.',
-            photo: 'images/ambrosio-apresentacao.gif'
-        },
-        {
             name: 'Houdini',
             epithet: 'O mágico peludo',
             text: 'Vive separado dos outros, e vamos contar como estamos a lidar com isso.',

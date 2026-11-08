@@ -65,10 +65,22 @@
         "title": "Higiene avançada: cuidados íntimos e glândula caudal",
         "excerpt": "Tudo o que precisas de saber sobre a higiene específica dos machos e check-ups caseiros de saúde.",
         "date": "4 Novembro, 2026",
-        "featured": true,
+        "featured": false,
         "active": true,
         "hero": "hero.jpg",
         "card": "card.jpg",
         "imgIa": true
+    },
+    {
+        "id": 7,
+        "slug": "7-despedidas",
+        "title": "As despedidas na Toca: O luto, a preparação e o nosso adeus ao Ambrósio",
+        "excerpt": "Perder um companheiro é doloroso. Como lidar com o luto, as opções de cremação e a nossa homenagem viva ao Ambrósio e ao Floco.",
+        "date": "8 Novembro, 2026",
+        "featured": true,
+        "active": true,
+        "hero": "hero.jpg",
+        "card": "card.jpg",
+        "imgIa": false
     }
 ]
